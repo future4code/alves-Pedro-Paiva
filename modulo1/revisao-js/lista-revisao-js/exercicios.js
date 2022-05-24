@@ -67,7 +67,7 @@ return objeto
 function retornaNPrimeirosPares(n) {
    let menorPar = []
    let i 
-   for (i = 0; i <= n; i++) {
+   for (i = 0; i < n; i++) {
        if(i % 2 === 0 ) 
             {menorPar[i] = i} 
    }
@@ -105,7 +105,7 @@ function retornaChamadaDeFilme(filme) {
    filmes.ano = filme.ano
    filmes.diretor = filme.diretor
    filmes.atores = filme.atores
-   return `Venha assistir ao filme ${filmes.nome}, de ${filmes.ano}, dirigido por ${filmes.diretor} e estrelado por ${filmes.atores}.`
+   return `Venha assistir ao filme ${filmes.nome}, de ${filmes.ano}, dirigido por ${filmes.diretor} e estrelado por ${filmes.atores[0]},  ${filmes.atores[1]},  ${filmes.atores[2]}, ${filmes.atores[3]}.`
     
 }
 
@@ -118,15 +118,21 @@ function retornaPessoaAnonimizada(pessoa) {
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
    const autorizados = pessoas.filter((pessoa) => {
-       return pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5  }) 
+       return pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5   }) 
+       return autorizados
     }
 
 
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
+    const naoAutorizados = pessoas.filter((pessoa) => {
+        return pessoa.idade <= 14 || pessoa.idade > 60 || pessoa.altura < 1.5   }) 
+        return naoAutorizados
+     }
+ 
   
-}
+
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
