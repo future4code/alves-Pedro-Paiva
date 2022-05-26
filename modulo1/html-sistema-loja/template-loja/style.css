@@ -28,7 +28,7 @@ p{
 nav {
     background-color: white;
     text-align: center;
-    position: relative;
+    
     height: 19px;
     padding: 5px;
     
@@ -42,6 +42,9 @@ a{
     position: relative;
     text-align: center;
     
+}
+a:hover{
+    background-color: red;
 }
 
 footer {
@@ -92,7 +95,8 @@ a {
 }
 
 footer {
-    position: absolute;
+    position: fixed;
+    bottom: 0;
     align-items: center;
     display: inline-block;
     margin-bottom: 10px;
