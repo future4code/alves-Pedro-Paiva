@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+     padding: 0;
+}
+
+nav {
+    background-color: #919191;
+    height: 130px;
+}
+
+main{
+    background-color: black;
+    height: 520px;
+}
+
+footer {
+    background-color: #919191;
+    height: 90px;
+    margin-bottom: 0%;
+}
+
+.quem-sou{
+    background-color: #919191;
+    margin: 25px;
+
+
+}
+
+div>p{
+    color: blue;
+}
+
+.projetos{
+    background-color: #919191;
+    color: white;
+}
+
+.section1{
+    display: flex;
+    margin-top: 30px;
+    margin-right: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+.section2{
+    display: flex;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+footer{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-top: 20px;
+}
