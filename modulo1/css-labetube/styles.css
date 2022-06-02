@@ -22,6 +22,9 @@ footer{
     justify-content: center;
     font-size: 25px;
     margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 section{
@@ -74,4 +77,16 @@ video{
 
 .video{
     width: 100vh;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px ) {
+    .video{
+        width: 40vh;
+    }
+    header{ font-size: 15px;}
+}
+@media screen and (min-width: 481px ) and (max-width: 800px) {
+    .video{
+        width: 50vh;
+    }
 }
