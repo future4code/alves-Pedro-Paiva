@@ -1,65 +1,68 @@
 import React from "react";
 
 
-
-class Newmessage extends Component {
-
+class NewMessage extends React.Component {
   state = {
     mensagens: [
-      {nome: "Pedro",
-      mensagem: "minha primeira mensagem"
-    },
+      {
+        nome: "pedro",
+        mensagem: "oioioi"
+      }
     ],
     valorInputNome: "",
     valorInputMensagem: ""
   };
 
-  adicionaMensagem = () => {
-    const novaMensagem= {
+  EnviarMensagem = () => {
+    const novaMensagem = {
       nome: this.state.valorInputNome,
-      mensagens: this.state.valorInputMensagem
-    }
-    const novasMensagens = [...this.state.mensagens, novaMensagem];
 
-    this.setState({mensagens: novasMensagens})
+      mensagem: this.state.valorInputMensagem
+    };
+
+    
+    const novoMensagens = [...this.state.mensagens, novaMensagem];
+    
+    this.setState({ mensagens: novoMensagens });
   };
 
   onChangeInputNome = (event) => {
-    this.setState({valorInputNome: event.target.value})
+    this.setState({ valorInputNome: event.target.value });
   };
+
   onChangeInputMensagem = (event) => {
-    this.setState({valorInputMensagem: event.target.value})
-  }; 
-
-
+    this.setState({ valorInputMensagem: event.target.value });
+  };
 
   render() {
-
-    const ListaDeMensagens = this.state.mensagens.map((mensagem) => {
-        return ( 
-            <p>
-              {mensagem.nome} - {mensagem.mensagem}
-            </p>
-
-        )
-        });
+    const listaDeMensagens = this.state.mensagens.map((mensagem) => {
+      return (
+        <p>
+          {mensagem.nome} - {mensagem.mensagem}
+        </p>
+      );
+    });
 
     return (
       <div>
-        <form>
-        <input
-          value={this.state.valorInputNome}
-          onChange={this.onChangeInputNome} > Seu nome </input>
-        <input
-          value={this.state.valorInputMensagem}
-          onChange={this.onChangeInputMensagem} >Sua mensagem</input>
-        <button 
-          onClick={this.adicionaMensagem}>   Enviar  </button>
-        </form>
-        <div>{ListaDeMensagens}</div>
+        
+        <div>
+         <div>{listaDeMensagens}</div>
+          <input
+            value={this.state.valorInputNome}
+            onChange={this.onChangeInputNome}
+            placeholder={"Seu Nome"}
+          />
+          <input
+            value={this.state.valorInputMensagem}
+            onChange={this.onChangeInputMensagem}
+            placeholder={"Sua Mensagem"}
+          />
+          <button onClick={this.EnviarMensagem}>Enviar</button>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-export default Newmessage;
+export default NewMessage;
