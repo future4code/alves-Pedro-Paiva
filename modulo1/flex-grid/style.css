@@ -8,7 +8,7 @@ header{
     align-items: center;
     padding-right: 20px;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 
 }
 img{
@@ -20,6 +20,13 @@ img{
 
 header>p{
     font-weight: bold;
+    display: flex;
+    padding-right: 84%;
+    padding-left: 20px;
+    font-size: 20px;
+    
+    text-align: center;
+
 }
 
 .barra-lateral{

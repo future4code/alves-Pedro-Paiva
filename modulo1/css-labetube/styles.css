@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: orange;
+}
+input{
+    padding: 8px;
+}
+footer{
+    
+    background-color: grey;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    
+}
+
+a{
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vh;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    text-decoration: none;
+    gap: 10px;
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 60px;
+}
+main>p{
+    font-size: 40px;
+    padding: 10px;
+}
+
+video{
+    width: 40vh;   
+}
+
+.video{
+    width: 100vh;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px ) {
+    .video{
+        width: 40vh;
+    }
+    header{ font-size: 15px;}
+}
+@media screen and (min-width: 481px ) and (max-width: 800px) {
+    .video{
+        width: 50vh;
+    }
+}
