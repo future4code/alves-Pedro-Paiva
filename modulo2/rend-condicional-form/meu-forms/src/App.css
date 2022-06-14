@@ -1,0 +1,6 @@
+import styled from 'styled-components';
+
+
+.form{
+  background-color: blue;
+}
