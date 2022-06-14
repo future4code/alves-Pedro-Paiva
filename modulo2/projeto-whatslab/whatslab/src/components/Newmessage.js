@@ -5,8 +5,8 @@ class NewMessage extends React.Component {
   state = {
     mensagens: [
       {
-        nome: "pedro",
-        mensagem: "oioioi"
+        nome: "",
+        mensagem: ""
       }
     ],
     valorInputNome: "",
@@ -46,7 +46,7 @@ class NewMessage extends React.Component {
     return (
       <div>
         
-        <div>
+        <caixa>
          <div>{listaDeMensagens}</div>
           <input
             value={this.state.valorInputNome}
@@ -59,7 +59,7 @@ class NewMessage extends React.Component {
             placeholder={"Sua Mensagem"}
           />
           <button onClick={this.EnviarMensagem}>Enviar</button>
-        </div>
+        </caixa>
       </div>
     );
   }
