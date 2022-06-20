@@ -43,66 +43,11 @@ const PostPhoto = styled.img`
 `
 
 class Post extends React.Component {
-  state = {
-    curtido: false,
-    numeroCurtidas: 0,
-    comentando: false,
-    numeroComentarios: 0
-  }
 
-  onClickCurtida = () => {
-    console.log('Curtiu!')
-    this.setState({
-      curtido: !this.state.curtido,
-      
-    }) 
-    if (this.state.curtido == false) {
-      this.state.numeroCurtidas = this.state.numeroCurtidas +1
-    } else if (this.state.curtido == true) {
-      this.state.numeroCurtidas = this.state.numeroCurtidas - 1
-    }
-  }
 
-  onClickComentario = () => {
-    this.setState({
-      comentando: !this.state.comentando
-    })
-  }
-
-  aoEnviarComentario = () => {
-    this.setState({
-      comentando: false,
-      numeroComentarios: this.state.numeroComentarios + 1,
-    })
-  }
   
-  OnClickSalvo = () => {
-    this.setState({
-       salvo: !this.state.salvo,
-    })
-  }
 
   render() {
-    let iconeSalvo 
-    if(this.state.salvo){
-      iconeSalvo = iconeSalvoPreto}
-      else {iconeSalvo = iconeSalvoBranco}
-
-
-    let iconeCurtida
-
-    if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
-    } else {
-      iconeCurtida = iconeCoracaoBranco
-    }
-
-    let componenteComentario
-
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
-    }
-
     return <PostContainer>
       <PostHeader>
         <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
@@ -112,23 +57,8 @@ class Post extends React.Component {
       <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
 
       <PostFooter>
-        <IconeComContador
-          icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
-          valorContador={this.state.numeroCurtidas}
-        />
-
-        <IconeComContador
-          icone={iconeSalvo}
-          onClickIcone={this.OnClickSalvo}
-        />
-        <IconeComContador
-          icone={iconeComentario}
-          onClickIcone={this.onClickComentario}
-          valorContador={this.state.numeroComentarios}
-        />
       </PostFooter>
-      {componenteComentario}
+     
     </PostContainer>
   }
 }

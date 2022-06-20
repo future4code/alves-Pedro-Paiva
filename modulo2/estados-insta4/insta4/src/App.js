@@ -32,27 +32,6 @@ class App extends React.Component {
     ]
   }
 
-  adicionaFoto = () => {
-    const novaFoto = {
-      nomeUsuario: this.state.valorInputNomeUsuario,
-      fotoUsuario: this.state.valorInputFotoUsuario,
-      fotoPost: this.state.valorInputFotoPost
-    }
-
-    const novaFotos = [...this.state.post, novaFoto];
-    this.setState({ posts: novaFotos});
-  }
-
-onChangeInputNomeUsuario = (event) => {
-  this.setState({valorInputNomeUsuario: event.target.value})
-}
-onChangeInputFotoUsuario = (event) => {
-  this.setState({valorInputFotoUsuario: event.target.value})
-}
-onChangeInputFotoPost = (event) => {
-  this.setState({valorInputFotoPost: event.target.value})
-}
-
  render() {
 
   const listaDePosts = this.state.posts.map((post)=> {
@@ -66,24 +45,7 @@ onChangeInputFotoPost = (event) => {
   } )
     return (
       <MainContainer>
-          <form> Adicionar Nova Foto <br/>
-            <input
-              value={this.state.valorInputNomeUsuario}
-              onChange={this.onChangeInputNomeUsuario}
-              placeholder={"Nova Foto"}
-            />
-            <input
-              value={this.state.valorInputFotoUsuario}
-              onChange={this.onChangeInputFotoUsuario}
-              placeholder={"Nome Usuário"}
-            />
-            <input
-              value={this.state.valorInputFotoPost}
-              onChange={this.onChangeInputFotoPost}
-              placeholder={"Local da foto"}
-            />
-            <button> Enviar Foto</button>
-          </form>
+         
 
           <div>{listaDePosts}</div>
           
