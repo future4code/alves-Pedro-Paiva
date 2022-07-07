@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import Header from './Header'
 
 const FotoPerfil = styled.img`
-    width: 300px;
-    height: 300px;
+    width: 370px;
+    height: 400px;
 `
 
 const CardApp = styled.div`
@@ -17,7 +17,19 @@ const CardApp = styled.div`
 `
 const CardPerfil = styled.div`
 
+display: inline-block;
+position: relative;
+margin: 10px;
 `
+const TextoName = styled.h3`
+  position: absolute;
+  top: 220px;
+  left: 10px;
+  font-size: 30px;
+  color: white;
+
+`
+
 const App = styled.div`
   display: flex;
   justify-content: center;
@@ -46,6 +58,10 @@ const Botao2 = styled.button`
     background-color: green;
     color: white;
     transform: scale(1.0);}
+`
+const Botoes = styled.div`
+    display: flex;
+    justify-content: space-around;
 `
 
 
@@ -82,12 +98,14 @@ export default function Perfis() {
         <CardApp>
              <CardPerfil>
                 <FotoPerfil src={photo}></FotoPerfil>
-                <h3>{nome} {idade}</h3>
-                <h4>{bio}</h4>
+                <TextoName>{nome} {idade} <h6>{bio}</h6> </TextoName>
+         
               </CardPerfil>
-        
-          <Botao1>X</Botao1> <Botao2>♥️</Botao2>
+              <Botoes>
+          <Botao1>X</Botao1>
+          <Botao2>♥️</Botao2>
            {useState}
+           </Botoes>
 
          </CardApp>
             
