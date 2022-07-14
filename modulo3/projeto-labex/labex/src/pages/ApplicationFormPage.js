@@ -1,14 +1,29 @@
 import React from 'react'
 import { goToTripsList } from '../routes/Coudinator'
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
+const FormSubscription = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+`
+const TextSubscription = styled.h2`
+    color: white;
+`
+const ButtonsForm = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+`
 export const ApplicationFormPage = () =>  {
   const navigate = useNavigate()
   return (
     <div>
-      <p>INSCREVA-SE PARA UMA VIAGEM</p>
+      <TextSubscription>INSCREVA-SE PARA UMA VIAGEM</TextSubscription>
      
-       <form>
+       <FormSubscription>
        <select>
           <option>viagem 1 </option>
           <option> viagem 2 </option>
@@ -21,13 +36,14 @@ export const ApplicationFormPage = () =>  {
         <input placeholder='profissao'></input>
         <select>
           <option>país </option>
+        </select>
+        <ButtonsForm>
+          <button onClick={() => goToTripsList(navigate,"/trips/list" )}> voltar </button>
+          <button> enviar </button>
+      </ButtonsForm>
+       
+      </FormSubscription>
      
-       </select>
-      </form>
-      <button onClick={() => goToTripsList(navigate,"/trips/list" )}> voltar </button>
-      <button> enviar </button>
-       
-       
 
 
     </div>

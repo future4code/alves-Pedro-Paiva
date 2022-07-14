@@ -1,37 +1,51 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToForm } from '../routes/Coudinator'
 import { goToHomePage } from '../routes/Coudinator'
 import axios from "axios"
+import styled from 'styled-components'
 
+const Home = styled.div`
+    display: flex;
+    gap: 40px;
+`
+const IdTrip = styled.h2`
+    color: white;
+`
 export const ListTripsPage = () => {
   const navigate = useNavigate()
+    const [viagens, setViagens] = useState([])
 
-  // state = {
-  //   viagens: [],
-  // }
+useEffect(() => {
+axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips", 
+{headers: {
+  Authorization: "alves-pedro-paiva",
+}}).then((resposta) => {
+  console.log(resposta.data)
+  setViagens(resposta.data.trips.name)
+  console.log(viagens)
+  
 
-  // getAllTrips = () => {
-  //   axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips", 
-  //   { headers: {
-  //     Authorization:"alves-pedro-paiva"
-  //   }}).then((resposta) => {
-  //     return this.setState({viagens: resposta.trip.name})
-  //   }).catch((erro)=> {
-  //     console.log(erro.response)
-  //   })
-  // }
+})
+}, []) 
+
   return (
     <div>
+       <Home>
         <button onClick={() => goToHomePage(navigate,"" )}>VOLTAR</button>
         <button onClick={() => goToForm(navigate,"trips/application" )}>INSCREVER NA VIAGEM</button>
+        </Home> 
       <p>LISTA DE VIAGENS</p>
 
-        <h3>viagem 1</h3>
-        <h3>viagem 2</h3>
-        <h3>viagem 3</h3>
-     
-
-    </div>
+        <div>
+          <ul>
+            {/* {viagens.map((viagem) => <li> {viagem}</li>)} */}
+          </ul>
+          
+          <h2></h2>
+          <h2></h2>
+        </div>
+   </div>
   )
+
 }
