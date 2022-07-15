@@ -17,3 +17,7 @@ export const goToForm = (navigate) => {
 export const goToHomePage = (navigate) => {
     navigate("/")
 }
+
+export const goToAdminPage = (navigate) => {
+    navigate("/admin/trips/list")
+}

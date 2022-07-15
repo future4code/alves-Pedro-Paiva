@@ -5,7 +5,7 @@ import { Router } from './routes/Router';
 const Home = styled.div`
 background-color: black;
 width: 100vw;
-height: 100vh;
+height: auto;
 display: flex;
 align-items: center;
 justify-content: center;

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToHomePage } from '../routes/Coudinator'
+import { goToAdminPage, goToHomePage } from '../routes/Coudinator'
 import styled from 'styled-components'
 
 const FormLogin = styled.form`
@@ -25,24 +25,31 @@ export const LoginPage = () => {
   const onChangePassword = (event) => {
     setPassword(event.target.value)
   }
-  const onSubmitLogin = () => {
+  
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
     console.log(email, password)
     const body = {
       email: email,
       password: password
-    }
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/alves-pedro-paiva/login',body
-    ).then((resposta) => {
-      console.log(resposta.data)
+    };
+    
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/alves-pedro-paiva/login",body
+    ).then((response) => {
+      console.log(response.data)
+      window.localStorage.setItem("token", response.data.token)
+      navigate("/admin/trips/list")
     }).catch((erro) => {
       console.log(erro.message)
     })
+    
+    
   }
 
   return (
     <DivLogin>
         <TextLogin>Faça o seu LOGIN para acessar a area restrita</TextLogin>
-        <FormLogin>
+        <FormLogin onSubmit={onSubmitLogin}>
           <input
              placeholder='email'
              type="email"
@@ -53,9 +60,9 @@ export const LoginPage = () => {
              type="password"
              value={password}
              onChange={onChangePassword}></input>
-          <button onClick={onSubmitLogin}> ENTRAR </button>
-          <button onClick={() => goToHomePage(navigate,"" )}>VOLTAR</button>
+          <button> ENTRAR </button>
         </FormLogin>
+        <button onClick={() => goToHomePage(navigate,"" )}>VOLTAR</button>
 
     </DivLogin>
   )
