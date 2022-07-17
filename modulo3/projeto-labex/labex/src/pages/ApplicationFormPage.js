@@ -2,6 +2,8 @@ import React from 'react'
 import { goToTripsList } from '../routes/Coudinator'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { useState } from 'react'
+import axios from 'axios'
 
 const FormSubscription = styled.form`
     display: flex;
@@ -19,27 +21,88 @@ const ButtonsForm = styled.div`
 `
 export const ApplicationFormPage = () =>  {
   const navigate = useNavigate()
+  const [name, setName] = useState("")
+  const [age, setAge] = useState("")
+  const [applicationText, setApplicationText] = useState("")
+  const [profession, setProfession] = useState("")
+  const [country, setCountry] = useState("")
+  const [tripId, setTripId] = useState("")
+
+  const onChangeName = (event) => {
+    setName(event.target.value)
+  }
+  const onChangeAge = (event) => {
+    setAge(event.target.value)
+  }
+  const onChangeApplicationText = (event) => {
+    setApplicationText(event.target.value)
+  } 
+   const onChangeProfession = (event) => {
+    setProfession(event.target.value)
+  }
+  const onChangeCountry = (event) => {
+    setCountry(event.target.value)
+  }
+  const onChangeTripId = (event) => {
+    setTripId(event.target.value)
+  }
+
+    
+  const onApplyToTrip = () => {
+      const body = {
+      name: name,
+      age: age,
+      applicationText: applicationText,
+      profession: profession,
+      country: "Brasil"
+    };
+     const id = "22LiyKBFF1ScADw5ERPW"
+    
+    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/alves-pedro-paiva/trips/${id}/apply`,body
+    ).then((response) => {
+      console.log(response.data)
+    }).catch((erro) => {
+      console.log(erro.message)
+    })
+ }
   return (
     <div>
       <TextSubscription>INSCREVA-SE PARA UMA VIAGEM</TextSubscription>
      
        <FormSubscription>
-       <select>
+        <input 
+        placeholder='nome'
+        type="name"
+        value={name}
+        onChange={onChangeName}></input>
+        <input 
+        placeholder='idade'
+        type="number"
+        value={age}
+        onChange={onChangeAge}></input>
+        <input
+         placeholder='texto de candidatura'
+         type="string"
+         value={applicationText}
+         onChange={onChangeApplicationText}></input>
+        <input 
+        placeholder='profissao'
+        type="string"
+        value={profession}
+        onChange={onChangeProfession}
+        ></input>
+        <select>
+          <option>país </option>
+        </select>
+        <select>
           <option>viagem 1 </option>
           <option> viagem 2 </option>
           <option> viagem 3</option>
           <option> viagem 4</option>
        </select>
-        <input placeholder='nome'></input>
-        <input placeholder='idade'></input>
-        <input placeholder='texto de candidatura'></input>
-        <input placeholder='profissao'></input>
-        <select>
-          <option>país </option>
-        </select>
         <ButtonsForm>
           <button onClick={() => goToTripsList(navigate,"/trips/list" )}> voltar </button>
-          <button> enviar </button>
+          <button onClick={onApplyToTrip()}> enviar </button>
       </ButtonsForm>
        
       </FormSubscription>

@@ -8,6 +8,7 @@ import styled from 'styled-components'
 const Home = styled.div`
     display: flex;
     gap: 40px;
+    justify-content: center;
 `
 const IdTrip = styled.h2`
     color: white;
@@ -16,6 +17,17 @@ const CardTrip = styled.div`
     background-color: white;
     height: auto;
     width: 300px;
+`
+const PageList = styled.div`
+    width: 100vw;
+    height: auto;
+    background-color: black;
+    justify-content: center;
+`
+const TextList = styled.p`
+    color: white;
+    display: flex;
+    justify-content: center;
 `
 export const ListTripsPage = () => {
   const navigate = useNavigate()
@@ -33,30 +45,27 @@ axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips
 }, []) 
 const listViagens = viagens.map((viagem) => {
     return (
-      // <div>{viagem.name}</div>
       <ul>
-        <p> LISTA DE VIAGENS</p>
         <CardTrip> 
           <h3>Viagem: {viagem.name}</h3>
           <h5>{viagem.description}</h5>
           <h5>Quando: {viagem.date}</h5>
-
         </CardTrip>
-        
       </ul>
     )
 })
 
   return (
     <div>
+      <PageList>
        <Home>
         <button onClick={() => goToHomePage(navigate,"" )}>VOLTAR</button>
         <button onClick={() => goToForm(navigate,"trips/application" )}>INSCREVER NA VIAGEM</button>
         </Home> 
-      <p>LISTA DE VIAGENS</p>
-          
+      <TextList>VIAGENS DISPONÍVEIS</TextList>
           {listViagens}
-    
+       </PageList>
+       
    </div>
   )
 

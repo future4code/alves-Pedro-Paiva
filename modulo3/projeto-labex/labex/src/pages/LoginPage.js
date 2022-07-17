@@ -42,9 +42,7 @@ export const LoginPage = () => {
     }).catch((erro) => {
       console.log(erro.message)
     })
-    
-    
-  }
+ }
 
   return (
     <DivLogin>

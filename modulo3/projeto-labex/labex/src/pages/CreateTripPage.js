@@ -62,6 +62,7 @@ const createTrip = (event) => {
       console.log(response.data)
     }).catch((erro) => {
       console.log(erro.message)
+      
     })
     
     
