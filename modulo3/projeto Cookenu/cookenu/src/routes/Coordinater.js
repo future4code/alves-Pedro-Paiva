@@ -10,8 +10,8 @@ export const goToFeedPage = (navigate) => {
     navigate("/feed")
 }
 
-export const goToDetailsPage = (navigate) => {
-    navigate("/detalhes/:id")
+export const goToDetailsPage = (navigate, id) => {
+    navigate(`/detalhes/${id}`)
 }
 
 export const goToAddReceita = (navigate) => {

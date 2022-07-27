@@ -6,8 +6,16 @@ import {useNavigate} from 'react-router-dom'
 const HeaderBar = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: space-between;
+justify-content: space-around;
+background-color:  #F27649;
+width: 100vw;
+height: 64px;
+align-items: center;
 `
+const ButtonHeader = styled.button`
+ width: 89px;
+ height: 33px;
+ `
 
 export default function Header() {
     const navigate = useNavigate()
@@ -30,8 +38,8 @@ export default function Header() {
     return (
     
     <HeaderBar>
-        <button onClick={() => goToFeedPage(navigate)}> COOKENU </button>
-        <button onClick={rigthButtonAction}> {rigthButtonText} </button>
+        <ButtonHeader onClick={() => goToFeedPage(navigate)}> COOKENU </ButtonHeader>
+        <ButtonHeader onClick={rigthButtonAction}> {rigthButtonText} </ButtonHeader>
     </HeaderBar>
   )
 }

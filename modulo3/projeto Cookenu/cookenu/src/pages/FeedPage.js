@@ -3,6 +3,8 @@ import { BASE_URL } from '../constants/urls'
 import useProtectPage from '../hooks/useProtectPage'
 import axios from 'axios'
 import styled from 'styled-components'
+import { goToDetailsPage } from '../routes/Coordinater'
+import { useNavigate } from 'react-router-dom'
 
 const ImageRecipie = styled.img`
   width: 100%;
@@ -19,13 +21,14 @@ const CardRecipie = styled.div`
 `
 const ContainerRecipies = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;d
 `
 
 export default function FeedPage() {
   useProtectPage()
   const token = localStorage.getItem("token")
   const [recipies, setRecipies] = useState([])
+  const navigate = useNavigate()
 
   useEffect (() => {
     axios.get(`${BASE_URL}/recipe/feed`, {headers: {Authorization: token}} )
@@ -38,10 +41,14 @@ export default function FeedPage() {
     })
   }, [])
 
+  const onClickCard = (id) => {
+    goToDetailsPage(navigate, id )
+  }
+
   const listRecipies = recipies.map((recipie) => {
     return (
       <ul>
-        <CardRecipie>
+        <CardRecipie onClick={() => onClickCard(recipie.recipe_id)} >
            <ImageRecipie src={recipie.image}></ImageRecipie>
            <h3> {recipie.title}</h3>
         </CardRecipie>
@@ -50,7 +57,7 @@ export default function FeedPage() {
   })
 
   return (
-    <div>FeedPage
+    <div>
         <ContainerRecipies>
         {listRecipies}
         </ContainerRecipies>
