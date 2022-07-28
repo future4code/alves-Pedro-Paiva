@@ -15,7 +15,7 @@ export const Router = () =>  {
             <Route index element={<LoginPage/>}></Route>
             <Route path="cadastro" element={<CadastroPage/>}></Route>
             <Route path="feed" element={<FeedPage/>}></Route>
-            <Route path="adicionar-receita" element={<AddReceitaPage/>}></Route>
+            <Route path="adiciona-receita" element={<AddReceitaPage/>}></Route>
             <Route path="detalhes/:id" element={<DetailsReceitaPage/>}></Route>
         </Routes>
     </BrowserRouter>

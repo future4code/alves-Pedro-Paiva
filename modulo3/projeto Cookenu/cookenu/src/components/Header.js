@@ -13,8 +13,18 @@ height: 64px;
 align-items: center;
 `
 const ButtonHeader = styled.button`
- width: 89px;
+ width: auto;
  height: 33px;
+ background-color: #F27649;
+ border: none;
+ border-radius: 25px;
+ color: white;
+ font-size: 20px;
+ :hover {
+  background-color: white;
+  color:  #F27649
+ }
+
  `
 
 export default function Header() {

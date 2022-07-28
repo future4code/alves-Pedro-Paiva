@@ -3,7 +3,7 @@ import { BASE_URL } from '../constants/urls'
 import useProtectPage from '../hooks/useProtectPage'
 import axios from 'axios'
 import styled from 'styled-components'
-import { goToDetailsPage } from '../routes/Coordinater'
+import { goToAddReceita, goToDetailsPage } from '../routes/Coordinater'
 import { useNavigate } from 'react-router-dom'
 
 const ImageRecipie = styled.img`
@@ -21,8 +21,21 @@ const CardRecipie = styled.div`
 `
 const ContainerRecipies = styled.div`
     display: flex;
-    flex-wrap: wrap;d
+    flex-wrap: wrap;
 `
+const NewRecipie = styled.button`
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+    position: fixed !important;
+    color: white;
+    background-color: #F27649;
+    border-radius: 50%;
+    border: none;
+    width: 56px;
+    height: 56px;
+    font-size: 40px;
+    `
 
 export default function FeedPage() {
   useProtectPage()
@@ -59,7 +72,8 @@ export default function FeedPage() {
   return (
     <div>
         <ContainerRecipies>
-        {listRecipies}
+          <NewRecipie  onClick={() => goToAddReceita(navigate)}> + </NewRecipie>
+        {listRecipies} 
         </ContainerRecipies>
     </div>
   )

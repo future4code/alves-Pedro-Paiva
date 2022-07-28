@@ -4,6 +4,31 @@ import {useNavigate} from 'react-router-dom'
 import { BASE_URL } from '../constants/urls'
 import { goToFeedPage } from '../routes/Coordinater'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const CreateUserForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 40vh;
+    justify-content: center;
+    margin: auto;
+    gap: 10px;
+`
+const CreateUserTitle = styled.h4`
+    font-size: 2rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    text-align: center;
+`
+const CreateUserButton = styled.button`
+    color: white;
+    background-color: #F27649;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 20px;
+`
 
 export default function CadastroPage() {
   const navigate = useNavigate()
@@ -11,7 +36,6 @@ export default function CadastroPage() {
   
   const onSubmitForm = (event) => {
     event.preventDefault()
-    console.log(form)
     signUp()
   }
 
@@ -25,8 +49,9 @@ export default function CadastroPage() {
   }
   
   return (
-    <div>CadastroPage
-        <form onSubmit= {onSubmitForm}>
+    <div>
+        <CreateUserForm onSubmit= {onSubmitForm}>
+          <CreateUserTitle> Crie um novo usuário</CreateUserTitle>
           <input
           name={"name"}
           value={form.name}
@@ -45,8 +70,8 @@ export default function CadastroPage() {
           onChange={onChange}
           placeholder="senha"
           type={"password"}></input>
-          <button type="submit">Cadastrar</button>
-        </form>      
+          <CreateUserButton type="submit">Cadastrar Usuário</CreateUserButton>
+        </CreateUserForm>      
     </div>
   )
 }
